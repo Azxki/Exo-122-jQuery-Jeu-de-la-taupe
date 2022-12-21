@@ -4,7 +4,7 @@ let moles = $('.mole');
 let button = $('#startGame');
 let departSecondes = 9
 let temps = departSecondes * 11
-let img = document.createElement('img');
+let premier = $('#1');
 
 button.ready(function() {
     $.startGame = function (){
@@ -17,8 +17,10 @@ button.ready(function() {
             //Selection random du trou
             let hole = holes[Math.floor(Math.random()*holes.length)];
             console.log(hole);
-            //Disparition des trous
-            hole = $('.hole').addClass('up').hide();
+
+            if (secondes === 9) {
+                holes.addClass('up')[Math.floor(Math.random()*holes.length)];
+            }
             //Fin de partie quand le compte à rebours est à 0
             if (secondes === 0) {
                 return clearInterval(int) & alert("La partie est terminée !");
